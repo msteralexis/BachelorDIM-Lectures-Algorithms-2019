@@ -38,7 +38,9 @@ def average_above_zero(table):
         return som/n
 
 
-
+## Dans cette fonction on passe par valeur un tableau
+## on control si on n'as bien passer un tableau 
+## On parcour le tableau on stock la valeur la plus grande ainsi que sont indice dans deux variable intermédiaire 
 def max_value(table):
     if not(isinstance(table, list)):
         raise ValueError( ' il faut passer une liste') 
