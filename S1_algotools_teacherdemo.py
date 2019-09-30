@@ -163,6 +163,9 @@ matrix[3:6, 4:8]=np.ones((3,4), dtype=np.int32)
 matrix[3,8]=1
 matrix[2,6]=1
 matrix[6,6]=1
+
+
+
 point_bas=0
 point_droit=0
 point_gauche=0

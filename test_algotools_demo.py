@@ -5,9 +5,9 @@ Created on Sun Sep 29 21:44:54 2019
 
 @author: alben
 """
-import S1_algotools_teacherdemo as tobetested
-import pytest
 
+import pytest
+import S1_algotools_teacherdemo as tobetested
 
 '''
 def test_average_above_zero_working1():
