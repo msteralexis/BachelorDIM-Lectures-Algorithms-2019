@@ -41,7 +41,7 @@ def test_divide_by_zero():
 def test_exo1_1():
     tab=[1,2,3,4,5,6]
     som=tobetested.average_above_zero(tab)
-    assert som==3.5
+    assert som == 3.5
  ## on test si la fonction prend en compte uniquement les nombre négatif
 def test_exo1_2():
     tab=[-1,-2,-3,-4,-5,-6]
@@ -114,7 +114,8 @@ def test_exo3_3():
 def test_exo3_4():        
     tab=[1,2,3,4,5,6]
     tab_test=[6,5,4,3,2,1]
-    table_inverser= tobetested.reverse_table2(tab)
+    table_inverser=tobetested.reverse_table2(tab)
+    assert table_inverser== tab_test
     assert tab==tab_test
  
 ## test avec un tableau avec nombre élément impair
@@ -123,4 +124,5 @@ def test_exo3_5():
     tab_test=[6,4,3,2,1]
     table_inverser= tobetested.reverse_table2(tab)
     assert tab==tab_test
+    assert table_inverser== tab_test
     

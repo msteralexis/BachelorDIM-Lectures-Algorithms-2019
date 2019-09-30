@@ -108,83 +108,75 @@ print(tablezz)
 ##          Exo 4
 ##########################################
 ''' on importe une bibliothèque pour gérer les image '''
-#import cv2
+import cv2
+import numpy as np
 
 ''' on importe l'image '''
-#img=cv2.imread('exo4.png',0)
+img2=cv2.imread('exoquatre.png',0)
 
-''' permet d'afficher l'image dans une fenêtre  
-cv2.imshow('read image',img)
-cv2.waitKey()
-'''
+
+
+
+
+def aa(img):    
+    point_bas=0
+    point_droit=0
+    point_gauche=img.shape[1]
+    point_haut=0
+    for idrow in range (img.shape[0]):
+        for idcol in range (img.shape[1]):
+            pixval=[idrow,idcol] 
+            ''' on étermie du point bas '''
+            if  img[idrow,idcol]==255:
+                if point_bas < idrow :
+                    point_bas=idrow
+                    coordoner_bas=[idrow,idcol]
+                if point_haut==0:
+                    coordoner_haut=[idrow,idcol]
+                    point_haut=1
+                if point_droit < idcol:
+                    point_droit=idcol
+                    coordoner_droit=[idrow,idcol]
+                if point_gauche > idcol:
+                    coordoner_gauche=[idrow,idcol]
+                    point_gauche=idcol
+                    
+    a=np.eye(4,2)
+    ##coordoner point 1 du rectangle 
+    a[0,0]=coordoner_haut[0]
+    a[0,1]=coordoner_gauche[1]
+    ##coordoner point 2 du rectangle 
+    a[1,0]=coordoner_haut[0]
+    a[1,1]=coordoner_droit[1]
+    ##coordoner point 3 du rectangle 
+    a[2,0]=coordoner_bas[0]
+    a[2,1]=coordoner_droit[1]
+    ##coordoner point 4 du rectangle 
+    a[3,0]=coordoner_bas[0]
+    a[3,1]=coordoner_gauche[1]
+    return  a
+
+
+alexis=aa(img2)
+                
+print(alexis)
+
+
 
 
 
 '''teste prof '''
-import numpy as np
+
 
 '''oncréer une matrice qu'avec des zeros'''
 matrix=np.zeros((10,10), dtype=np.int32) 
 
 ''' dans ce tableau je viens lui rentrer des valeur = 1 '''
 matrix[3:6, 4:8]=np.ones((3,4), dtype=np.int32)
-matrix[3,8]=1
-matrix[2,6]=1
-matrix[6,6]=1
+'''
+cv2.imshow('read image',img)
+cv2.waitKey()
+'''
+'''permet d'afficher l'image dans une fenêtre  
 
-
-
-point_bas=0
-point_droit=0
-point_gauche=matrix.shape[1]
-point_haut=0
-
-
-
-
-for idrow in range (matrix.shape[0]):
-    for idcol in range (matrix.shape[1]):
-        pixval=[idrow,idcol] 
-        print(pixval)
-        ''' on étermie du point bas '''
-        if  matrix[idrow,idcol]==1:
-            
-            if point_bas < idrow :
-                point_bas=idrow
-                coordoner_bas=[idrow,idcol]
-            if point_haut==0:
-                coordoner_haut=[idrow,idcol]
-                point_haut=1
-                
-            if point_droit < idcol:
-                point_droit=idcol
-                coordoner_droit=[idrow,idcol]
-          
-            if point_gauche > idcol:
-                coordoner_gauche=[idrow,idcol]
-                point_gauche=idcol
-                
-              
-
-       
-
-print(coordoner_droit)
-print(coordoner_bas)
-print(coordoner_haut)
-print(coordoner_gauche)
-
-
-
-point[0]=[0,0]
-point[1]=[1,1]
-print(point)
-print(point[1])
-a=point[1]
-print(a[0])
-
-def rectangle_entourant_image(haut,basgauche,droit):
-    point[0]=[0,0]
-    point[1]=[1,1]
-    print(point)
-    a=point[1]
-    print(a[0])
+'''
