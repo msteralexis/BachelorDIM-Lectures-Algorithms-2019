@@ -31,11 +31,12 @@ def test_divide_by_zero():
 ##          Exo 1
 ##########################################
         
+## on test si la somme es faite correcttement
 def test_exo1_1():
     tab=[1,2,3,4,5,6]
     som=tobetested.average_above_zero(tab)
     assert som==3.5
-    
+ ## on test si la fonction prend en compte uniquement les nombre négatif
 def test_exo1_2():
     tab=[-1,-2,-3,-4,-5,-6]
     som=tobetested.average_above_zero(tab)
@@ -44,6 +45,12 @@ def test_exo1_2():
     
 def test_exo1_3():
     tab="vive le vent !!"
-    som=tobetested.average_above_zero(tab)
     with pytest.raises(ValueError):
+        som=tobetested.average_above_zero(tab)
+    
 
+        
+        
+##########################################
+##          Exo 2
+##########################################
