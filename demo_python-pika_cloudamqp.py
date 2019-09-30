@@ -11,20 +11,21 @@ import os
 import pika
 
 
-mode='_SEND' #set 'SEND' mode is you will to send rather than receive messages
+mode='SEND' #set 'SEND' mode is you will to send rather than receive messages
 
 
 def callback(ch, method, properties, body):
     print(" [x] Received %r" % body)
 
 
+## lien vers RabbitMQ
+amqp_url=''
 
-amqp_url='amqp://jalwjmqg:xDVxbg8pr7tJ5X3WPS7aEFvXf0_yTD56@lark.rmq.cloudamqp.com/jalwjmqg'
 
-
-# Parse CLODUAMQP_URL (fallback to localhost)
+# En pthon on doit créer une url 
 url = os.environ.get('CLOUDAMQP_URL',amqp_url)
 params = pika.URLParameters(url)
+## une socket pour le temps d'attente 
 params.socket_timeout = 5
 
 connection = pika.BlockingConnection(params) # Connect to CloudAMQP
@@ -34,6 +35,8 @@ channel = connection.channel()
 channel.queue_declare(queue='hello')
 
 
+
+## lors de l'envoi d'un message 
 if mode == 'SEND':
     channel.basic_publish(exchange='',
                           routing_key='hello',
@@ -42,8 +45,9 @@ if mode == 'SEND':
     print(" [x] Sent 'Hello World!'")
     
     connection.close()
-else:
-        
+## lors de la réception d'un message 
+else: 
+    ## basic_consume vas bloquer le programme et attend qu'un message arriver  
     channel.basic_consume(queue='hello',
                           on_message_callback=callback,                          
                           auto_ack=True)
