@@ -23,8 +23,8 @@ def test_divide_by_zero():
 ##          Exo 1
 ##########################################
         
-def test_exo1_1()
+def test_exo1_1():
     tab=[1,2,3,4,5,6]
     som=S1_algotools.average_above_zero(tab)
-    assert som==21
+    assert som==3.5
     

@@ -184,8 +184,8 @@ for idrow in range (matrix.shape[0]):
             if point_haut==0:
                 coordoner_haut=[idrow,idcol]
                 point_haut=1
-     
-                
+            if poin_gauche <3:
+                point
         
 
        
