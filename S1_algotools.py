@@ -139,7 +139,61 @@ print(tablezz)
 ##########################################
 ##          Exo 4
 ##########################################
-
+''' on importe une bibliothèque pour gérer les image '''
 import cv2
+''' on importe l'image '''
 img=cv2.imread('exo4.png',0)
-print(img)
+
+''' permet d'afficher l'image dans une fenêtre  
+cv2.imshow('read image',img)
+cv2.waitKey()
+'''
+
+
+
+
+'''teste prof '''
+import numpy as np
+
+'''oncréer une matrice qu'avec des zeros'''
+matrix=np.zeros((10,10), dtype=np.int32) 
+
+''' dans ce tableau je viens lui rentrer des valeur = 1 '''
+matrix[3:6, 4:8]=np.ones((3,4), dtype=np.int32)
+matrix[3,8]=1
+matrix[2,6]=1
+matrix[6,6]=1
+point_bas=0
+point_droit=0
+point_hauche=0
+point_haut=0
+
+for idrow in range (matrix.shape[0]):
+    for idcol in range (matrix.shape[1]):
+        pixval=[idrow,idcol] 
+        print(pixval)
+        ''' on étermie du point bas '''
+        if  matrix[idrow,idcol]==1:
+            
+            if point_bas < idrow :
+                point_bas=idrow
+                coordoner_bas=[idrow,idcol]
+            if point_droit < idcol:
+                point_droit=idcol
+                coordoner_droit=[idrow,idcol]
+            if point_haut==0:
+                coordoner_haut=[idrow,idcol]
+                point_haut=1
+
+        
+
+       
+
+print(coordoner_droit)
+print(coordoner_bas)
+
+print(coordoner_haut)
+
+
+
+
