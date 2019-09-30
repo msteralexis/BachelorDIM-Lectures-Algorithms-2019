@@ -6,7 +6,7 @@ Created on Thu Sep 26 14:17:13 2019
 @author: escudera
 """
 
-print (' Programme Session 1 / Alexis Escudero')
+print (' Programme Session 1 / Alexis Escudero !!')
 
 ##########################################
 ##          Exo 1
@@ -38,13 +38,6 @@ def average_above_zero(table):
     else: 
         return som/n
     
-##test  average_above_zero
-tab=[1,2,3,4,5,6]
-som=average_above_zero(tab)
-if som==0:
-    print('erreur que des nombre négatifs')
-else: 
-    print ('la somme vault ', som)
 
 
 
@@ -62,28 +55,11 @@ def max_value(table):
     valeur_max=table[0]
     indice=0
     for i in range(len(table) ):
-        if (tab[i]> valeur_max):
-            valeur_max=tab[i]
+        if (table[i]> valeur_max):
+            valeur_max=table[i]
             indice=i
     return(valeur_max,indice)
 
-##test function max_value
-
-## Test valeur max pour chiffre négatif  
-tab=[-5,-8]
-valeur_max,indice=max_value(tab)
-print('valeur max = ',valeur_max)
-print('indice valeur = ',indice)
-
-## Test valeur max pour chiffre positif
-tab=[1,2,3,4,5,6]
-valeur_max,indice=max_value(tab)
-print('valeur max = ',valeur_max)
-print('indice valeur = ',indice)
-
-## Test si on lui envoi bien un tableau
-##tab=12
-##valeur_max,indice=max_value(tab)
 
 
 
