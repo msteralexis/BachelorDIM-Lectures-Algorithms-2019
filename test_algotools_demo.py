@@ -21,7 +21,7 @@ def test_average_above_zero_divideZero():
 	
 	
 
-def inc_(x):
+def inc(x):
     return x+1
 
 def test_inc():
