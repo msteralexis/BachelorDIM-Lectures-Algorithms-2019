@@ -9,7 +9,7 @@ import S1_algotools_teacherdemo as tobetested
 import pytest
 
 
-
+'''
 def test_average_above_zero_working1():
 	tab_list=[1,2,3,-4,6,-9]
 	test, lastID=tobetested.average_above_zero(tab_list)
@@ -25,7 +25,7 @@ def test_inc():
 def test_divide_by_zero():
     with pytest.raises(ZeroDivisionError):
         1/0
-
+'''
         
 ##########################################
 ##          Exo 1
