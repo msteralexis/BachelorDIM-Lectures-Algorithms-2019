@@ -52,7 +52,7 @@ def test_exo1_3():
 ##########################################
 ##          Exo 2
 ##########################################
-        ## on test si la fonction renvoi une erreur si on lui passe autre chose qu'un tableau 
+## on test si la fonction renvoi une erreur si on lui passe autre chose qu'un tableau 
 def test_exo2_1():
     tab="vive le vent !!"
     with pytest.raises(ValueError):
@@ -75,13 +75,46 @@ def test_exo2_3():
 ##########################################
 ##          Exo 3
 ##########################################
+    
+    ## test fonction existante 
 def test_exo3_1():
     tab="vive le vent !!"
     with pytest.raises(ValueError):
         tobetested.reverse_table(tab)
 
-
+## test tableau avec nombre element pair 
 def test_exo3_2():        
     tab=[1,2,3,4,5,6]
+    tab_test=[6,5,4,3,2,1]
     table_inverser= tobetested.reverse_table(tab)
-    assert table_inverser==tab
+    assert table_inverser==tab_test
+    assert tab==tab_test
+
+## test avec un tableau avec nombre élément impair
+def test_exo3_5():        
+    tab=[1,2,3,4,6]
+    tab_test=[6,4,3,2,1]
+    table_inverser= tobetested.reverse_table(tab)
+    assert table_inverser==tab_test
+    assert tab==tab_test   
+    
+## test fonction réaliser par moi même 
+def test_exo3_3(): 
+    tab="vive le vent !!"
+    with pytest.raises(ValueError):
+        tobetested.reverse_table2(tab)
+        
+## test tableau avec nombre element pair 
+def test_exo3_4():        
+    tab=[1,2,3,4,5,6]
+    tab_test=[6,5,4,3,2,1]
+    table_inverser= tobetested.reverse_table2(tab)
+    assert tab==tab_test
+ 
+## test avec un tableau avec nombre élément impair
+def test_exo3_5():        
+    tab=[1,2,3,4,6]
+    tab_test=[6,4,3,2,1]
+    table_inverser= tobetested.reverse_table2(tab)
+    assert tab==tab_test
+    

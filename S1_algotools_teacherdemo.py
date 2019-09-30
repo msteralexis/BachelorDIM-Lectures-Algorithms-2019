@@ -76,6 +76,13 @@ def reverse_table(table):
     return table
     
 
+
+taboo=[1,2,3,4,6]
+print(taboo)
+aa=reverse_table(taboo)
+print(taboo)
+print(aa)
+
 ## Dans cztte fonction souhaite inverser un tableau passer en paramère par valeur
 ## Ici on utilise une boucle while pour parcourire nore tableau 
 ## deux compeur un pointant sur le premier élément et le deuxième le dernier élément du tableau
@@ -100,6 +107,7 @@ def reverse_table2(table):
 table=[1,2,3,4,6]
 print(table)
 tablezz=reverse_table2(table)
+print(table)
 print(tablezz)
 
 
