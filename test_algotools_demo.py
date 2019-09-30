@@ -42,9 +42,12 @@ def test_exo1_2():
     som=tobetested.average_above_zero(tab)
     assert som==0
     
-    
+ ## on test si la fonction renvoi une erreur si on lui passe autre chose qu'un tableau 
 def test_exo1_3():
     tab="vive le vent !!"
+    ## initialisation variable
+    som=0 
+   
     with pytest.raises(ValueError):
         som=tobetested.average_above_zero(tab)
     
