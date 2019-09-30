@@ -45,7 +45,6 @@ def test_exo1_2():
  ## on test si la fonction renvoi une erreur si on lui passe autre chose qu'un tableau 
 def test_exo1_3():
     tab="vive le vent !!"
-    ## initialisation variable
     with pytest.raises(ValueError):
         tobetested.average_above_zero(tab)
     
@@ -53,3 +52,15 @@ def test_exo1_3():
 ##########################################
 ##          Exo 2
 ##########################################
+def test_exo2_1():
+    tab="vive le vent !!"
+    with pytest.raises(ValueError):
+        tobetested.max_valu(tab)
+
+def test_exo2_2():
+    tab=[-5,-8]
+    valeur_max,indice=tobetested.max_value(tab)
+    assert valeur_max==-5
+    assert indice==0
+
+
