@@ -36,3 +36,8 @@ def test_exo1_1():
     som=tobetested.average_above_zero(tab)
     assert som==3.5
     
+def test_exo1_2():
+    tab=[-1,-2,-3,-4,-5,-6]
+    som=tobetested.average_above_zero(tab)
+    assert som==0
+
