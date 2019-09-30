@@ -174,7 +174,17 @@ print(coordoner_haut)
 print(coordoner_gauche)
 
 
+
+point[0]=[0,0]
+point[1]=[1,1]
+print(point)
+print(point[1])
+a=point[1]
+print(a[0])
+
 def rectangle_entourant_image(haut,basgauche,droit):
     point[0]=[0,0]
     point[1]=[1,1]
     print(point)
+    a=point[1]
+    print(a[0])
