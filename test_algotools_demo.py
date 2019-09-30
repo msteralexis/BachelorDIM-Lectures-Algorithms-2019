@@ -55,7 +55,7 @@ def test_exo1_3():
 def test_exo2_1():
     tab="vive le vent !!"
     with pytest.raises(ValueError):
-        tobetested.max_valu(tab)
+        tobetested.max_value(tab)
 
 def test_exo2_2():
     tab=[-5,-8]
@@ -64,3 +64,8 @@ def test_exo2_2():
     assert indice==0
 
 
+
+
+##########################################
+##          Exo 3
+##########################################
