@@ -60,14 +60,14 @@ def test_exo2_1():
 def test_exo2_2():
     tab=[-5,-8]
     valeur_max,indice=tobetested.max_value(tab)
-    assert valeur_max==-5 
-    assert indice==0
+    assert valeur_max == -5 
+    assert indice== 0
 
 def test_exo2_3():
     tab=[1,2,3,4,5,6]
     valeur_max,indice=tobetested.max_value(tab)
-    assert valeur_max==6
-    assert indice==5
+    assert valeur_max== 6
+    assert indice== 5
 
 
 ##########################################
