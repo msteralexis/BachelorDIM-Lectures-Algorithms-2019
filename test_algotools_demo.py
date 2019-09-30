@@ -46,13 +46,9 @@ def test_exo1_2():
 def test_exo1_3():
     tab="vive le vent !!"
     ## initialisation variable
-    som=0 
-   
     with pytest.raises(ValueError):
-        som=tobetested.average_above_zero(tab)
+        tobetested.average_above_zero(tab)
     
-
-        
         
 ##########################################
 ##          Exo 2
