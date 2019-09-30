@@ -75,14 +75,6 @@ def reverse_table(table):
     table.reverse()
     return table
     
-
-
-taboo=[1,2,3,4,6]
-print(taboo)
-aa=reverse_table(taboo)
-print(taboo)
-print(aa)
-
 ## Dans cztte fonction souhaite inverser un tableau passer en paramère par valeur
 ## Ici on utilise une boucle while pour parcourire nore tableau 
 ## deux compeur un pointant sur le premier élément et le deuxième le dernier élément du tableau
@@ -179,7 +171,10 @@ for idrow in range (matrix.shape[0]):
 print(coordoner_droit)
 print(coordoner_bas)
 print(coordoner_haut)
-
-
 print(coordoner_gauche)
 
+
+def rectangle_entourant_image(haut,basgauche,droit):
+    point[0]=[0,0]
+    point[1]=[1,1]
+    print(point)
