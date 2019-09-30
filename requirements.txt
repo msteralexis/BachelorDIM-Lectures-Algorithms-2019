@@ -1,0 +1,9 @@
+matplotlib>=2.0.0
+numpy>=1.12.1
+pika>=0.10.0
+pytest>=3.2.1
+python-dateutil>=2.6.0
+scipy>=0.18.1
+urllib3>=1.21.1
+pytest-cov>=2.5.1
+coveralls>=1.2.0
