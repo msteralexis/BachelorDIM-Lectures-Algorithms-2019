@@ -165,8 +165,11 @@ matrix[2,6]=1
 matrix[6,6]=1
 point_bas=0
 point_droit=0
-point_hauche=0
+point_gauche=0
 point_haut=0
+
+
+
 
 for idrow in range (matrix.shape[0]):
     for idcol in range (matrix.shape[1]):
@@ -178,15 +181,19 @@ for idrow in range (matrix.shape[0]):
             if point_bas < idrow :
                 point_bas=idrow
                 coordoner_bas=[idrow,idcol]
-            if point_droit < idcol:
-                point_droit=idcol
-                coordoner_droit=[idrow,idcol]
             if point_haut==0:
                 coordoner_haut=[idrow,idcol]
                 point_haut=1
-            if poin_gauche <3:
-                point
-        
+                
+            if point_droit > idcol:
+                point_droit=idcol
+                coordoner_droit=[idrow,idcol]
+          
+            if point_gauche < idcol:
+                coordoner_gauche=[idrow,idcol]
+                point_gauche=idcol
+                
+              
 
        
 
@@ -195,7 +202,5 @@ print(coordoner_bas)
 print(coordoner_haut)
 
 
-
-
-
+print(coordoner_gauche)
 
