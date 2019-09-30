@@ -140,15 +140,15 @@ print(tablezz)
 ##          Exo 4
 ##########################################
 ''' on importe une bibliothèque pour gérer les image '''
-import cv2
+
+#import cv2
 ''' on importe l'image '''
-img=cv2.imread('exo4.png',0)
+#img=cv2.imread('exo4.png',0)
 
 ''' permet d'afficher l'image dans une fenêtre  
 cv2.imshow('read image',img)
 cv2.waitKey()
 '''
-
 
 
 
