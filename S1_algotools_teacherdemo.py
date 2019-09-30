@@ -31,7 +31,7 @@ def average_above_zero(table):
     n = 0
     for i in range(len(table)):
         if table[i] > 0:
-            som = som+tab[i]
+            som = som+table[i]
             n=n+1
     if n==0:
         return 0
@@ -75,14 +75,6 @@ def reverse_table(table):
     table.reverse()
     return table
     
-
-##test function reverse_table()
-table=[1,2,3,4,5,6]
-print(table)
-table_inverser=reverse_table(table)
-print(table_inverser)
-
-
 
 ## Dans cztte fonction souhaite inverser un tableau passer en paramère par valeur
 ## Ici on utilise une boucle while pour parcourire nore tableau 

@@ -52,17 +52,19 @@ def test_exo1_3():
 ##########################################
 ##          Exo 2
 ##########################################
+        ## on test si la fonction renvoi une erreur si on lui passe autre chose qu'un tableau 
 def test_exo2_1():
     tab="vive le vent !!"
     with pytest.raises(ValueError):
         tobetested.max_value(tab)
 
+## test si les nombre négatif fonctionne
 def test_exo2_2():
     tab=[-5,-8]
     valeur_max,indice=tobetested.max_value(tab)
     assert valeur_max== -5
     assert indice== 0
-
+## test si les nombre positif fonctionne
 def test_exo2_3():
     tab=[1,2,3,4,5,6]
     valeur_max,indice=tobetested.max_value(tab)
@@ -73,3 +75,13 @@ def test_exo2_3():
 ##########################################
 ##          Exo 3
 ##########################################
+def test_exo3_1():
+    tab="vive le vent !!"
+    with pytest.raises(ValueError):
+        tobetested.reverse_table(tab)
+
+
+def test_exo3_2():        
+    tab=[1,2,3,4,5,6]
+    table_inverser= tobetested.reverse_table(tab)
+    assert table_inverser==tab
