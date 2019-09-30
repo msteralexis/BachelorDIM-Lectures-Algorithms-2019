@@ -140,8 +140,8 @@ print(tablezz)
 ##          Exo 4
 ##########################################
 ''' on importe une bibliothèque pour gérer les image '''
-
 #import cv2
+
 ''' on importe l'image '''
 #img=cv2.imread('exo4.png',0)
 
@@ -168,7 +168,7 @@ matrix[6,6]=1
 
 point_bas=0
 point_droit=0
-point_gauche=0
+point_gauche=matrix.shape[1]
 point_haut=0
 
 
@@ -188,11 +188,11 @@ for idrow in range (matrix.shape[0]):
                 coordoner_haut=[idrow,idcol]
                 point_haut=1
                 
-            if point_droit > idcol:
+            if point_droit < idcol:
                 point_droit=idcol
                 coordoner_droit=[idrow,idcol]
           
-            if point_gauche < idcol:
+            if point_gauche > idcol:
                 coordoner_gauche=[idrow,idcol]
                 point_gauche=idcol
                 
