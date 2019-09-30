@@ -40,4 +40,10 @@ def test_exo1_2():
     tab=[-1,-2,-3,-4,-5,-6]
     som=tobetested.average_above_zero(tab)
     assert som==0
+    
+    
+def test_exo1_3():
+    tab="vive le vent !!"
+    som=tobetested.average_above_zero(tab)
+    with pytest.raises(ValueError):
 
