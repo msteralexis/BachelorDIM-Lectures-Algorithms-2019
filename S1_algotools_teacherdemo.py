@@ -19,6 +19,9 @@ def average_above_zero(tab):
             nElem+=1
             pos_val_sum+=tab[id]
             lastID=id
+
+    if nElem==0:
+	raise ZeroDivisionError('No positive element found in provided list')
     return pos_val_sum/nElem, lastID           
     
 #test section
