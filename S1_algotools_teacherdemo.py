@@ -108,17 +108,13 @@ print(tablezz)
 ##          Exo 4
 ##########################################
 ''' on importe une bibliothèque pour gérer les image '''
-import cv2
-import numpy as np
-
-''' on importe l'image '''
-img2=cv2.imread('exoquatre.png',0)
 
 
 
 
 
-def aa(img):    
+
+def roi_bbox(img): 
     point_bas=0
     point_droit=0
     point_gauche=img.shape[1]
@@ -127,56 +123,53 @@ def aa(img):
         for idcol in range (img.shape[1]):
             pixval=[idrow,idcol] 
             ''' on étermie du point bas '''
-            if  img[idrow,idcol]==255:
+            if  img[idrow,idcol]>=1:
                 if point_bas < idrow :
                     point_bas=idrow
-                    coordoner_bas=[idrow,idcol]
+                    coordoner_bas=pixval
                 if point_haut==0:
-                    coordoner_haut=[idrow,idcol]
+                    coordoner_haut=pixval
                     point_haut=1
                 if point_droit < idcol:
                     point_droit=idcol
-                    coordoner_droit=[idrow,idcol]
+                    coordoner_droit=pixval
                 if point_gauche > idcol:
-                    coordoner_gauche=[idrow,idcol]
+                    coordoner_gauche=pixval
                     point_gauche=idcol
-                    
-    a=np.eye(4,2)
-    ##coordoner point 1 du rectangle 
-    a[0,0]=coordoner_haut[0]
-    a[0,1]=coordoner_gauche[1]
-    ##coordoner point 2 du rectangle 
-    a[1,0]=coordoner_haut[0]
-    a[1,1]=coordoner_droit[1]
-    ##coordoner point 3 du rectangle 
-    a[2,0]=coordoner_bas[0]
-    a[2,1]=coordoner_droit[1]
-    ##coordoner point 4 du rectangle 
-    a[3,0]=coordoner_bas[0]
-    a[3,1]=coordoner_gauche[1]
-    return  a
+      
+    if point_bas!=0 and point_haut!=0 and point_droit!=0 :        
+        tab_coordoner=np.eye(4,2)
+        ##coordoner point 1 du rectangle 
+        tab_coordoner[0,0]=coordoner_haut[0]
+        tab_coordoner[0,1]=coordoner_gauche[1]
+        ##coordoner point 2 du rectangle 
+        tab_coordoner[1,0]=coordoner_haut[0]
+        tab_coordoner[1,1]=coordoner_droit[1]
+        ##coordoner point 3 du rectangle 
+        tab_coordoner[2,0]=coordoner_bas[0]
+        tab_coordoner[2,1]=coordoner_droit[1]
+        ##coordoner point 4 du rectangle 
+        tab_coordoner[3,0]=coordoner_bas[0]
+        tab_coordoner[3,1]=coordoner_gauche[1]
+        return  tab_coordoner
+    else:
+        return 0
 
 
-alexis=aa(img2)
+import cv2
+import numpy as np
+
+''' on importe l'image '''
+img2=cv2.imread('exoquatre.png',0)
+alexis=roi_bbox(img2)
                 
 print(alexis)
 
-
-
-
-
-'''teste prof '''
-
-
-'''oncréer une matrice qu'avec des zeros'''
 matrix=np.zeros((10,10), dtype=np.int32) 
-
-''' dans ce tableau je viens lui rentrer des valeur = 1 '''
 matrix[3:6, 4:8]=np.ones((3,4), dtype=np.int32)
-'''
-cv2.imshow('read image',img)
-cv2.waitKey()
-'''
-'''permet d'afficher l'image dans une fenêtre  
+alexis2=roi_bbox(matrix)
+print(alexis2[0,0])
+print(alexis2)
 
-'''
+
+
