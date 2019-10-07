@@ -170,4 +170,18 @@ def test_exo5_4():
     k=2
     res=tobetested.random_fill_sparse(table, k)
     assert np.where(res == 'vive')
+    
+    
+##########################################
+##          Exo 6
+##########################################
+def test_exo6_1():   
+    alexis=10
+    with pytest.raises(ValueError):
+        tobetested.remove_whitespace(alexis)
+        
+def test_exo6_2():   
+    alexis=' aalexis effectuent un test'
+    res= tobetested.remove_whitespace(alexis)   
+    assert res=='aalexiseffectuentuntest'
         

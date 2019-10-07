@@ -193,3 +193,16 @@ def random_fill_sparse(table_parametre, k):
             i=i+1
     return table
 
+
+##########################################
+##          Exo 6
+##########################################
+## Dans cette exercice nous souhaitons envoyer une chaine de caractère en paramètre pour suprimer les espaces
+## nous controlons dans un premier temps si c'est bien uen chaine qui nous es renvoyer 
+## si c'est le cas nous utiliser la fonction Replace de l'objet pour suprimer les espaces.
+## chaine_amodifier qui sont définie de la manière suivant ' '  nosu retournons le resultat
+def remove_whitespace(chaine_amodifier):
+    if not(isinstance(chaine_amodifier, str)):
+        raise ValueError( ' il faut passer une chaine de caractere ') 
+    table_renverser=chaine_amodifier.replace(' ','')
+    return table_renverser
