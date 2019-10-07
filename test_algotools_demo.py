@@ -146,25 +146,26 @@ def test_exo4_2():
 ##########################################
 ##          Exo 5
 ##########################################
+## On test si notre fonction evaluer si une case es vide ou non fonctionne
 def test_exo5_1():
     tab_casevide=['','a']
     res=tobetested.case_vide(tab_casevide[0])
     assert res==1
     res=tobetested.case_vide(tab_casevide[1])
     assert res==0
-    
+## on test si on passer k autre chose qu'un entier nous avons bien uen erreur    
 def test_exo5_2():
     table=[1,2,3,4]
-    k='a'
+    k='a' 
     with pytest.raises(ValueError):
         tobetested.random_fill_sparse(table, k)
-
+## on test la remonter d'erreur si on rentre un nombre de case à remplir supèrieur au nombre de case du tableau 
 def test_exo5_3():
     table = np.chararray((4,4))
     k=10
     with pytest.raises(ValueError):
         tobetested.random_fill_sparse(table, k)
-
+## On test si notre fonction nous remplit correctement notre tableau 
 def test_exo5_4():
     table = np.chararray((4,4))
     k=2
@@ -175,11 +176,12 @@ def test_exo5_4():
 ##########################################
 ##          Exo 6
 ##########################################
+## on test la remonte d'erreur si on passe autre chose qu'une chaine de caractère 
 def test_exo6_1():   
     alexis=10
     with pytest.raises(ValueError):
         tobetested.remove_whitespace(alexis)
-        
+## On test si notre fonction suprimer bien les caractère 
 def test_exo6_2():   
     alexis=' aalexis effectuent un test'
     res= tobetested.remove_whitespace(alexis)   

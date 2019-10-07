@@ -101,7 +101,6 @@ def reverse_table2(table):
 ##########################################
 ##          Exo 4
 ##########################################
-''' on importe une bibliothèque pour gérer les image '''
 def roi_bbox(img): 
     point_bas=0
     point_droit=0
@@ -206,3 +205,33 @@ def remove_whitespace(chaine_amodifier):
         raise ValueError( ' il faut passer une chaine de caractere ') 
     table_renverser=chaine_amodifier.replace(' ','')
     return table_renverser
+
+
+##########################################
+##          Exo 7
+##########################################
+
+
+def shuffle(liste):
+    if not(isinstance(liste, list)):
+        raise ValueError( ' il faut passer une liste') 
+    taille_liste=len(liste)
+    indice=range(taille_liste)
+    random.shuffle(indice)
+    i=0
+    while (i < taille_liste ):
+        print(liste[(indice[i])])
+        i=i+1
+    return liste
+
+liste=['a','b','c','d']
+d=shuffle(liste)
+print(d)
+
+
+
+'''
+del liste[1]
+'''
+
+         
