@@ -143,3 +143,31 @@ def test_exo4_2():
     tab_coordoner=tobetested.roi_bbox(matrix)
     assert tab_coordoner==0
     
+##########################################
+##          Exo 5
+##########################################
+def test_exo5_1():
+    tab_casevide=['','a']
+    res=tobetested.case_vide(tab_casevide[0])
+    assert res==1
+    res=tobetested.case_vide(tab_casevide[1])
+    assert res==0
+    
+def test_exo5_2():
+    table=[1,2,3,4]
+    k='a'
+    with pytest.raises(ValueError):
+        tobetested.random_fill_sparse(table, k)
+
+def test_exo5_3():
+    table = np.chararray((4,4))
+    k=10
+    with pytest.raises(ValueError):
+        tobetested.random_fill_sparse(table, k)
+
+def test_exo5_4():
+    table = np.chararray((4,4))
+    k=2
+    res=tobetested.random_fill_sparse(table, k)
+    assert np.where(res == 'vive')
+        

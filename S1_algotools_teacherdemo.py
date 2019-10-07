@@ -5,6 +5,8 @@ Created on Thu Sep 26 14:17:13 2019
 
 @author: escudera
 """
+import cv2
+import numpy as np
 
 print (' Programme Session 1 / Alexis Escudero !!')
 
@@ -95,25 +97,11 @@ def reverse_table2(table):
         i=i+1
     return table
 
-##test function reverse_table2()
-table=[1,2,3,4,6]
-print(table)
-tablezz=reverse_table2(table)
-print(table)
-print(tablezz)
-
-
 
 ##########################################
 ##          Exo 4
 ##########################################
 ''' on importe une bibliothèque pour gérer les image '''
-
-
-
-
-
-
 def roi_bbox(img): 
     point_bas=0
     point_droit=0
@@ -156,20 +144,52 @@ def roi_bbox(img):
         return 0
 
 
-import cv2
-import numpy as np
-
-''' on importe l'image '''
-img2=cv2.imread('exoquatre.png',0)
-alexis=roi_bbox(img2)
-                
-print(alexis)
-
-matrix=np.zeros((10,10), dtype=np.int32) 
-matrix[3:6, 4:8]=np.ones((3,4), dtype=np.int32)
-alexis2=roi_bbox(matrix)
-print(alexis2[0,0])
-print(alexis2)
 
 
+
+
+##########################################
+##          Exo 5
+##########################################
+## Dans cette exercice il nous passons à notre fonction 2 paramètre 
+## une matrice 2D de types caractère vide et un entier.
+## Nous souhaitons remplir x case du tableau en fonction de la valeur de notre entier
+## Pour commencer la fonction control si Nous passons bien un entier nomé ici K 
+## et si le nombre de case du tableau es suffisant pa rapport à la valeur de k
+## Pour générer une case au assard dans notre matrice 2 liste mélanger prendront la
+## valeur de x et de y.
+## nous controlons à chaue fois si la case es bien vide grace à une fonction définie 
+## si la case es vide alors nous lui donnons comme nouvelle valeur 'vive'
+## nous renvoyont le tableau avec les case remplit
+import random
+from random import randint
+
+def case_vide(char):
+    if(char==''):
+        return 1
+    else:
+        return 0
+
+
+def random_fill_sparse(table_parametre, k):
+    if not(isinstance(k, int)):
+        raise ValueError( ' il faut passer un entier') 
+    table=table_parametre
+    tailletab= np.shape(table)
+    nc_case_tab=tailletab[0]+tailletab[1]
+    if (nc_case_tab<k):
+        raise ValueError( 'tableau trops petit par rapprt au nombre d element que vous souhaitez integrer') 
+   
+
+    liste_x=range(0,tailletab[0])
+    liste_y=range(0,tailletab[1])
+    i=0
+    while (i < (tailletab[0]-1) ):
+        print(i)
+        x=random.choice(liste_x) 
+        y=random.choice(liste_y) 
+        if (case_vide(table[x,y])==1):
+            table[x,y]='vive'
+            i=i+1
+    return table
 
