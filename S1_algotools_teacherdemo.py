@@ -212,26 +212,35 @@ def remove_whitespace(chaine_amodifier):
 ##########################################
 
 
-def shuffle(liste):
+## Dans cette exercice nous souhaitons passer en paramètre une liste
+## une liste avec le même contenut devra être renvoyer mais melanger au hassard
+    
+## Dans cette premier fonction nous utiliserons la fonction melanger une liste exstante dans numpy
+def shuffle1(liste):
+    if not(isinstance(liste, list)):
+        raise ValueError( ' il faut passer une liste') 
+    random.shuffle(liste)
+    return liste
+    
+
+## Dans cette autre fonction nous devons dans une premier temps déterminer la taille de notre liste
+## 2 liste sont initialiser, la première contiendrat les indice tirer au sort a l'aide de la fonction Randint
+## la seconde contiendrat les valeurs piocher au hasard dans la liste passer en paramèttre
+## une condition permet de vérifier que le numero tirer avec randint n'es pas déj& contenu dans la liste d'indice
+def shuffle2(liste):
     if not(isinstance(liste, list)):
         raise ValueError( ' il faut passer une liste') 
     taille_liste=len(liste)
-    indice=range(taille_liste)
-    random.shuffle(indice)
+    liste_indice=[]
+    liste_melanger=[]
     i=0
     while (i < taille_liste ):
-        print(liste[(indice[i])])
-        i=i+1
-    return liste
-
-liste=['a','b','c','d']
-d=shuffle(liste)
-print(d)
-
-
-
-'''
-del liste[1]
-'''
-
+        a=randint(0, (taille_liste-1))
+        if  not (a in  liste_indice ):
+            liste_indice.append(a)
+            liste_melanger.append(liste[a])
+            i=i+1
+    return liste_melanger
+ 
+  
          

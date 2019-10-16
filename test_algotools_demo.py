@@ -187,3 +187,57 @@ def test_exo6_2():
     res= tobetested.remove_whitespace(alexis)   
     assert res=='aalexiseffectuentuntest'
         
+    
+##########################################
+##          Exo 7
+##########################################
+    
+## on viens tester ici notre fonction "déja existante" 
+## on test sir notre fonction control bien l'envoi dune liste 
+def test_exo7_1():
+    tab="vive le vent !!"
+    with pytest.raises(ValueError):
+        tobetested.shuffle1(tab)
+       
+## on test sir notre fonction nou renvoit bien une liste de la même taille
+def test_exo7_2():
+    liste=['a','b','c','d']
+    liste_melanger=tobetested.shuffle1(liste)
+    assert len(liste)== len(liste_melanger)
+    
+## on vérifier que le contenu de notre liste renvoyer es bien le même que la liste originale
+def test_exo7_3():
+    liste=['a','b','c','d']
+    liste_melanger2=tobetested.shuffle1(liste)
+    taille_liste=len(liste)
+    i=0
+    while (i < taille_liste):
+        assert liste[i] in liste_melanger2
+        i=i+1
+    
+  
+## on viens tester ici notre fonction "manuel"
+        
+## on test sir notre fonction control bien l'envoi dune liste     
+def test_exo7_4():
+    tab="vive le vent !!"
+    with pytest.raises(ValueError):
+        tobetested.shuffle2(tab)
+        
+## on test sir notre fonction nou renvoit bien une liste de la même taille      
+def test_exo7_5():
+    liste_test2=['a','b','c','d']
+    liste_melanger2=tobetested.shuffle2(liste_test2)
+    assert len(liste_test2)== len(liste_melanger2)
+ 
+    
+## on vérifier que le contenu de notre liste renvoyer es bien le même que la liste originale
+def test_exo7_6():
+    liste=['a','b','c','d']
+    liste_melanger2=tobetested.shuffle2(liste)
+    taille_liste=len(liste)
+    i=0
+    while (i < taille_liste):
+        assert liste[i] in liste_melanger2
+        i=i+1
+    
