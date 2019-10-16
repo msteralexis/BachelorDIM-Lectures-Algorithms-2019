@@ -1,1 +1,3 @@
-{}
+{
+  "test_s3.py::test_image": true
+}
