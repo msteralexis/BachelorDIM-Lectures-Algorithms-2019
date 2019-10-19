@@ -45,3 +45,7 @@ def test_all_function():
     image_couleur=cv2.imread("exo5.jpeg")
     compteur_test=S3.test_image2(image_couleur)
     assert compteur_test==3
+    
+    
+## Nous souhaitons obtenir le temps d"éxécutions de nos fonctions d'inversions 
+## de couleurs sur des images de taille differentes

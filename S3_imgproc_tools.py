@@ -49,32 +49,16 @@ def  invert_colors_opencv(input_img):
     return cv2.bitwise_not(input_img)
    
  
-    
 
-def test_image(image,fonction):
-    pixel_test=255-image[0,0]
-    if(fonction ==0 ):
-        image_inverse=  invert_colors_manual(image)
-    if(fonction ==1 ):
-        image_inverse= invert_colors_numpy(image) 
-    if(fonction ==2 ):
-       image_inverse= invert_colors_opencv(image)
-    if (pixel_test.all()==image[0,0].all()):
-        return 0
-    else :
-        return 1
-
-
-    
+## fonction permetant de regourper en 1 test toutes les fonctions  d'inversion de couleurs
 def test_pixel(image,image_inverser):
     pixel_test=255-image[0,0]
     if (pixel_test.all()==image_inverser[0,0].all()):
         return 0
     else :
         return 1
-    
-    
-  ## fonction permetant de regourper en 1 test toutes les fonctions  
+
+
 def test_image2(image):
     i=0
     image_inverse= invert_colors_manual(image)
@@ -89,30 +73,43 @@ def test_image2(image):
     return i
  
  
-   
-    
 
 ## Sur le même modèle que le bloque fonctionelle test_image2() 
 ## Nous réalisons une fonction nous servant pour le calcule de temps sur tous
-    ## les bloque fonctionelles
+## les bloque fonctionelles
  
 def time_image(image):
+    resultat = []
+    
     tmps1=time.clock()
     image_inverse= invert_colors_manual(image)
     tmps2=time.clock()
-    
+    resultat.append(['invert_colors_manual', tmps2 - tmps1])
+ 
     tmps3=time.clock()
     image_inverse= invert_colors_numpy(image) 
     tmps4=time.clock()
+    resultat.append(['invert_colors_numpy', tmps4 - tmps3])
     
     tmps5=time.clock()
     image_inverse= invert_colors_opencv(image)
     tmps6=time.clock()
-    
-    return (tmps2 - tmps1),(tmps4 - tmps3) , (tmps6 - tmps5)
+    resultat.append(['invert_colors_opencv', tmps6 - tmps5])
+    return resultat
 
 
 
+
+## On compare le temps d'éxécution de nos fonctions
+def delai_execution_comparer():
+    resultat_t=[]
+    image_4k=cv2.imread("S3_image_test/4k.jpeg") 
+    resultat_t.append([time_image(image_4k)])
+    image_720p=cv2.imread("S3_image_test/720p.jpg")
+    resultat_t.append([time_image(image_720p)])
+    image_480p=cv2.imread("S3_image_test/480.jpg")
+    resultat_t.append([time_image(image_480p)])
+    print resultat_t
 
 
 

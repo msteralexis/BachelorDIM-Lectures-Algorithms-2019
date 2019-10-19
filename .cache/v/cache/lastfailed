@@ -1,3 +1,7 @@
 {
+  "S3_imgproc_tools.py::test_image": true, 
+  "S3_imgproc_tools.py::test_image2": true, 
+  "S3_imgproc_tools.py::test_pixel": true, 
+  "test_s3.py::test_executions": true, 
   "test_s3.py::test_image": true
 }
