@@ -11,26 +11,28 @@ import S3_imgproc_tools as S3
 import numpy as np
 import cv2
 
-
+###########################################################################################
+##              Partie 1 
+###########################################################################################
 
 ## on effectuent une fonction test pour chaque fonction qui renverrat la couleurs inverser de l'image
 ## Dans une premier temps on doit charger l'image
 ## On effectue l'inversison d'une couleur sur un pixel de l'image. Sela nous servirat comme valeurs de test
-def test1():
+def test_invert_colors_manual():
     image_couleur=cv2.imread("exo5.jpeg")
     pixel_test=255-image_couleur[0,0]
     valeur_retour=S3.invert_colors_manual(image_couleur)
     assert pixel_test.all()==image_couleur[0,0].all()
 
 
-def test2():
+def test_invert_colors_numpy():
     image_couleur=cv2.imread("exo5.jpeg")
     pixel_test=255-image_couleur[0,0]
     valeur_retour=S3.invert_colors_numpy(image_couleur)
     assert pixel_test.all()==image_couleur[0,0].all()
     
 
-def test3():
+def test_invert_colors_opencv():
     image_couleur=cv2.imread("exo5.jpeg")
     pixel_test=255-image_couleur[0,0]
     valeur_retour=S3.invert_colors_opencv(image_couleur)
@@ -49,3 +51,20 @@ def test_all_function():
     
 ## Nous souhaitons obtenir le temps d"éxécutions de nos fonctions d'inversions 
 ## de couleurs sur des images de taille differentes
+    
+ 
+    
+###########################################################################################
+##              Partie 2
+###########################################################################################
+def test_threshold_image_manual():
+    imagee=cv2.imread("S3_image_test/480.jpg")
+    image_nb=S3.threshold_image_manual(imagee)
+    assert 255 in image_nb
+    assert 0 in image_nb
+    
+def threshold_colors_opencv():
+    n=np.arange(0,255)
+    imagee=cv2.imread("S3_image_test/480.jpg")
+    image_nb=S3.threshold_colors_opencv(imagee)
+    assert image_nb.all() in n.all() 
