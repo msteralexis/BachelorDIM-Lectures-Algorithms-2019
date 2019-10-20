@@ -9,30 +9,8 @@ Created on Sun Sep 29 21:44:54 2019
 import pytest
 import S1_algotools_teacherdemo as tobetested
 import numpy as np
+import S1_dice as dice
 
-'''
-def test_average_above_zero_working1():
-	tab_list=[1,2,3,-4,6,-9]
-	test, lastID=tobetested.average_above_zero(tab_list)
-	assert test==3
-
-def test_average_above_zero_divideZero():
-	tab_list=[-1,-2,-3,-4,-6,-9]
-	with pytest.raises(ZeroDivisionError):
-		tobetested.average_above_zero(tab_list)
-	
-	
-
-def inc(x):
-    return x+1
-
-def test_inc():
-    assert inc(3)==4
-
-def test_divide_by_zero():
-    with pytest.raises(ZeroDivisionError):
-        1/0
-'''
         
 ##########################################
 ##          Exo 1
@@ -240,4 +218,26 @@ def test_exo7_6():
     while (i < taille_liste):
         assert liste[i] in liste_melanger2
         i=i+1
+        
+        
+        
+##########################################
+##          S1 Exo 8
+########################################## 
+def test_exo8_1():
+    de = [1,2,3,4,5,6]
+    tirage=dice.tirage_de() 
+    assert tirage in de
     
+def test_exo8_2():
+    joueur1=[]
+    tirage,gagnant=dice.shuffle(joueur1)
+    assert 1==isinstance(tirage, list )
+    assert 1==isinstance(gagnant, str)
+   
+def test_exo8_3():
+    de = "vive le vent"
+    with pytest.raises(ValueError):
+        dice.shuffle(de)
+    
+      

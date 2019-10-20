@@ -25,10 +25,8 @@ print (' Programme Session 1 / Alexis Escudero !!')
 ## une condition vient vérifier si les nombres sont strictement bien positif
 ## Je test si on envoie bien un tableau à la fonction sinon on retourn un message d'erreur 
 def average_above_zero(table):
-    
     if not(isinstance(table, list)):
-        raise ValueError( ' il faut passer une liste') 
-        
+        raise ValueError( ' il faut passer une liste')   
     som = 0
     n = 0
     for i in range(len(table)):
@@ -241,6 +239,4 @@ def shuffle2(liste):
             liste_melanger.append(liste[a])
             i=i+1
     return liste_melanger
- 
-  
-         
+
