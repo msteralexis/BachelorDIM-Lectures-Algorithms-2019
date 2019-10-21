@@ -5,7 +5,7 @@ Created on Thu Sep 26 14:17:13 2019
 
 @author: escudera
 """
-import cv2
+
 import numpy as np
 
 print (' Programme Session 1 / Alexis Escudero !!')
