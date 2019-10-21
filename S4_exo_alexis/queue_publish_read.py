@@ -43,7 +43,8 @@ if args.sent:
     print("envoie d'un message à notre file")
     envoi.envoi_donne(channel,username)
     connection.close()
-if args.call:
+elif args.call:
     print("Réception des message en cours")
     read.recoit_message(channel,username)
-    
+else: 
+    print("passer un argument de type --sent ou --call")
