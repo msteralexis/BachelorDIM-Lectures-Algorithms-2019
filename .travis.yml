@@ -10,5 +10,5 @@ addons:
 # command to run tests
 script:
   - pytest -v --cov .
-  - sonar-scanner
-  - coveralls
+  #- sonar-scanner
+  #- coveralls
