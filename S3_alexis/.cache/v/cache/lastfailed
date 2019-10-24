@@ -1,0 +1,4 @@
+{
+  "test_s3.py::test_test": true, 
+  "test_s3.py::test_time_image": true
+}
